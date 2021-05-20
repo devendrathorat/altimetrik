@@ -1,0 +1,59 @@
+<div class="container" style="margin-top:5%">
+
+        <header>
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                  <a class="navbar-brand" >Altimetrik Task</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+                        <a class="nav-link" (click)="searchString = ''">ALL</a>
+                      </li>
+                      <li class="nav-item ">
+                        <a class="nav-link"   (click)="searchString = 'Financial'">Finacial</a>
+                      </li>
+                      <li class="nav-item ">
+                        <a class="nav-link"  (click)="searchString = 'Technical'">Technical</a>
+                      </li>
+                      <li class="nav-item ">
+                        <a class="nav-link"  (click)="searchString = 'Marketing'">Marketing</a>
+                      </li>
+                      <li class="nav-item ">
+                        <a class="nav-link"  (click)="searchString = 'Human Resources'">Human Resources</a>
+                      </li>
+                    
+                    
+                    </ul>
+                   
+                  </div>
+                </nav>
+              </header>
+
+              
+    <div class="row">
+
+        <div class="col-md-12">
+
+               <input class="form-control mr-sm-2" type="text"  [(ngModel)]="searchString" placeholder="Search Document By Name" aria-label="Search" style="margin-right: 2%">
+       
+        </div>
+
+
+        <div class="col-md-3" *ngFor="let val of content | searchdocument:searchString" style="cursor:pointer;padding: 10px">
+            <div class="card" style="box-shadow: 1px 2px 6px 1px">
+                    <div class="card-header" style="text-align: center"><b>
+                            {{val.documentCategory}}</b>
+                    </div>
+                 <div class="card-body">
+                    <p>{{val.documentName}}</p>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    
+</div>
